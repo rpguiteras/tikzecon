@@ -1,0 +1,10 @@
+%% priv opt for A
+\tikzmath{
+  \QprivOptA=optQ(\intMC,\bMC,\intA,\bA);
+  \MBprivOptA = MBpriv(\QprivOptA,\bA,\intA);
+}		
+\addplot[color = black, mark = *, only marks, mark size = 2pt] coordinates {(\QprivOptA, \MBprivOptA)};
+% dashed lines to optimum point 
+\addplot[color = black, dashed, thick] coordinates {(\QprivOptA, 0)	(\QprivOptA, \MBprivOptA)};
+% Axis Labels for L optimum
+\node [below] at (\QprivOptA, 0) {$Q_{A}$};

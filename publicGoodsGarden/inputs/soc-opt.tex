@@ -1,0 +1,9 @@
+%% priv opt for A
+\tikzmath{
+  \MBsocOpt = MBsoc(MBpriv(\qOptSoc,\bA,\intA),MBpriv(\qOptSoc,\bB,\intB));
+}		
+\addplot[color = black, mark = *, only marks, mark size = 2pt] coordinates {(\qOptSoc, \MBsocOpt)};
+% dashed lines to optimum point 
+\addplot[color = black, dashed, thick] coordinates {(\qOptSoc, 0)	(\qOptSoc, \MBsocOpt)};
+% Axis Labels for L optimum
+\node [below] at (\qOptSoc, 0) {$Q^{*}$};
