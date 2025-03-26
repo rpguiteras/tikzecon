@@ -1,0 +1,9 @@
+% what will firms emit when costs are Low and t = t0?
+%eoft(\t,\IC,\bC) = (\IC-\t)/\bC
+\tikzmath{
+  \eLoftopt = eoft(\t0,\ICL,\bCflat);
+}		
+\node [below] at ({\eLoftopt-\epihoffset}, \epivoffset) {$e^{\pi}_{L}(\bar{\tau})$};
+% dashed lines to new emissions
+\addplot[color = black, dashed, thick] coordinates {(0, \t0) (\eLoftopt, \t0)	(\eLoftopt, 0)};
+

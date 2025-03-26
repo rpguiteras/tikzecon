@@ -1,0 +1,19 @@
+%% low MAC
+\tikzmath{
+  \ICL=\IC0-\ICdiff;
+  \eL = eopt(\ICL,\bCflat,\ID,\bD);
+  \tL = topt(\ID,\bD,\eL);
+}		
+\addplot[domain = 0:100, restrict y to domain = 0:100, samples = 500, color = blue, thick]{MAC(x,\bCflat,\ICL)}
+node [pos=\labposMAC, \labdirMAC] {$\text{MAC}_{L}$};
+% label 
+%\node [right] at (0, {MAC(0,\bCflat,\ICL)}) {$\text{MAC}_{L}$};
+
+% new optimum point
+\addplot[color = black, mark = *, only marks, mark size = 2pt] coordinates {(\eL, \tL)};
+% dashed lines to optimum point 
+\addplot[color = black, dashed, thick] coordinates {(0, \tL) (\eL, \tL)	(\eL, 0)};
+% Axis Labels for L optimum
+\node [left] at (0, \tL) {$\tau^{*}_{L}$};
+
+\node [below] at (\eL, 0) {$e^{*}_{L}$};

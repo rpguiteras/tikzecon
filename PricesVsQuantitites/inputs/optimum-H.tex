@@ -1,0 +1,12 @@
+
+% new optimum point
+\tikzmath{
+  \eH = eopt(\ICH,\bCflat,\ID,\bD);
+  \tH = topt(\ID,\bD,\eH);
+}		
+\addplot[color = black, mark = *, only marks, mark size = 2pt] coordinates {(\eH, \tH)};
+% dashed lines to optimum point 
+\addplot[color = black, dashed, thick] coordinates {(0, \tH) (\eH, \tH)	(\eH, 0)};
+% Axis Labels for opt H
+\node [left] at (0, \tH) {$\tau^{*}_{H}$};
+\node [below] at (\eH, 0) {$e^{*}_{H}$};

@@ -1,0 +1,14 @@
+
+%calculate initial optimal e and t 
+% eopt(\IC,\bC,\ID,\bD) , topt(\ID,\bD,\e)
+\tikzmath{
+  \e0 = eopt(\IC0,\bCflat,\ID,\bD);
+  \t0 = topt(\ID,\bD,\e0);
+}
+% initial optimum point
+\addplot[color = black, mark = *, only marks, mark size = 2pt] coordinates {(\e0, \t0)};
+% dashed lines to optimum point 
+\addplot[color = black, dashed, thick] coordinates {(0, \t0) (\e0, \t0)	(\e0, 0)};
+% Axis Labels for intitial eqm
+\node [left] at (0, \t0) {$\bar{\tau}$};
+\node [below] at (\e0, 0) {$\bar{e}$};
