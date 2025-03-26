@@ -1,8 +1,5 @@
 %% priv opt for B
-\tikzmath{
-  \QprivOptB=optQ(\intMC,\bMC,\intB,\bB);
-  \MBprivOptB = MBpriv(\QprivOptB,\bB,\intB);
-}		
+
 \addplot[color = black, mark = *, only marks, mark size = 2pt] coordinates {(\QprivOptB, \MBprivOptB)};
 % dashed lines to optimum point 
 \addplot[color = black, dashed, thick] coordinates {(\QprivOptB, 0)	(\QprivOptB, \MBprivOptB)};
