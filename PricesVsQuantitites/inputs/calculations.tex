@@ -1,0 +1,15 @@
+
+% uses parameters defined in main tex 
+% and functions def'd in inputs.tex
+\tikzmath{
+  \e0 = eopt(\IC0,\bCflat,\ID,\bD);
+  \t0 = topt(\ID,\bD,\e0);
+  \ICH=\IC0+\ICdiff;
+  \eH = eopt(\ICH,\bCflat,\ID,\bD);
+  \tH = topt(\ID,\bD,\eH);
+  \eHoftopt = eoft(\t0,\ICH,\bCflat);
+  \ICL=\IC0-\ICdiff;
+  \eL = eopt(\ICL,\bCflat,\ID,\bD);
+  \tL = topt(\ID,\bD,\eL);
+  \eLoftopt = eoft(\t0,\ICL,\bCflat);
+}

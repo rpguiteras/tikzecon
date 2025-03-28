@@ -1,8 +1,6 @@
 
 %% high MAC
-\tikzmath{
-  \ICH=\IC0+\ICdiff;
-}		
+	
 \addplot[domain = 0:100, restrict y to domain = 0:100, samples = 500, color = blue, thick]{MAC(x,\bCflat,\ICH)}
   node [pos=\labposMAC, \labdirMAC] {$\text{MAC}_{H}$};
 

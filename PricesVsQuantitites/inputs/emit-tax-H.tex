@@ -1,9 +1,7 @@
 
 % what will firms emit when costs are High and t = t0?
 %eoft(\t,\IC,\bC) = (\IC-\t)/\bC
-\tikzmath{
-  \eHoftopt = eoft(\t0,\ICH,\bCflat);
-}		
+	
 \addplot[color = black, mark = *, only marks, mark size = 2pt] coordinates {(\eHoftopt, \t0)};
 \node [below] at ({\eHoftopt+\epihoffset}, \epivoffset) {$e^{\pi}_{H}(\bar{\tau})$};
 % dashed lines to new emissions

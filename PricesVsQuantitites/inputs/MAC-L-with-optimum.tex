@@ -1,9 +1,5 @@
 %% low MAC
-\tikzmath{
-  \ICL=\IC0-\ICdiff;
-  \eL = eopt(\ICL,\bCflat,\ID,\bD);
-  \tL = topt(\ID,\bD,\eL);
-}		
+
 \addplot[domain = 0:100, restrict y to domain = 0:100, samples = 500, color = blue, thick]{MAC(x,\bCflat,\ICL)}
 node [pos=\labposMAC, \labdirMAC] {$\text{MAC}_{L}$};
 % label 

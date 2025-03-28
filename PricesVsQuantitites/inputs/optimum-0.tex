@@ -1,10 +1,7 @@
 
 %calculate initial optimal e and t 
 % eopt(\IC,\bC,\ID,\bD) , topt(\ID,\bD,\e)
-\tikzmath{
-  \e0 = eopt(\IC0,\bCflat,\ID,\bD);
-  \t0 = topt(\ID,\bD,\e0);
-}
+
 % initial optimum point
 \addplot[color = black, mark = *, only marks, mark size = 2pt] coordinates {(\e0, \t0)};
 % dashed lines to optimum point 
