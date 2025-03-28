@@ -1,0 +1,75 @@
+\documentclass{beamer}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{amsmath}
+\pgfplotsset{compat = newest}
+\usetikzlibrary{calc, intersections,patterns}	      
+\usetikzlibrary{positioning, arrows.meta}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{math}
+
+\setbeamertemplate{navigation symbols}{}
+ 
+\begin{document}   
+	
+% parameters
+\tikzmath{
+	\IC0=40;		% MAC0 intercept
+  \ICdiff=10; % how much to shift MAC intercept
+	\bCflat=1/2; % slope of MAC
+	\ID=0;
+	\bD=1; 
+}
+
+
+% define common functions
+\input{inputs/functions.tex}
+
+% calculations using parameters and functions
+\input{inputs/calculations.tex}
+
+% positioning of some labels has to be adjusted after the fact
+\tikzmath{
+  \epivoffset=0;
+  \epihoffset=0;
+  \labposMAC = 1;
+}
+\def\labdirMAC{above}
+
+	
+\begin{frame}[fragile,plain]
+  % \frametitle{Title}
+
+\begin{tikzpicture}[font=\footnotesize]
+
+\input{inputs/axes.tex}
+
+\input{inputs/MD.tex}
+
+\input{inputs/MAC0.tex}
+
+\input{inputs/optimum-0.tex}
+
+\input{inputs/MAC-H.tex}
+
+\input{inputs/optimum-H.tex}
+
+\input{inputs/emit-tax-H.tex}
+
+\input{inputs/DWL-tax-H.tex}
+
+\input{inputs/DWL-cap-H.tex}
+
+\input{inputs/MAC-L-with-optimum.tex}
+
+\input{inputs/emit-tax-L.tex}
+
+\input{inputs/DWL-L.tex} 
+
+\end{axis}
+
+\end{tikzpicture}	
+
+\end{frame}
+	
+\end{document}
