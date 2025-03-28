@@ -11,6 +11,7 @@
  %allows coordinate calculations.
 \begin{document}   
 	
+% parameters
 \tikzmath{
 	\IC0=90;		% MAC0 intercept
   \ICdiff=20; % how much to shift MAC intercept
@@ -18,13 +19,16 @@
 	\ID=0;
 	\bD=1; 
 }
-\tikzset{declare function = {MAC(\x,\b,\I) = \I-(\b*\x);}}
-\tikzset{declare function = {MD(\x,\b,\I) = \I+(\b*\x);}}
 
-\tikzset{declare function = {eopt(\IC,\bC,\ID,\bD) = (\IC-\ID)/(\bC+\bD);}}
-\tikzset{declare function = {topt(\ID,\bD,\e) = \ID+(\bD*\e);}}
-\tikzset{declare function = {eoft(\t,\IC,\bC) = (\IC-\t)/\bC;}}
 
+% define common functions
+\input{inputs/functions.tex}
+
+% calculations using parameters and functions
+\input{inputs/calculations.tex}
+
+
+% positioning of some labels has to be adjusted after the fact
 % some formatting will be dependent on shape
 \tikzmath{
   \epivoffset=-4;
