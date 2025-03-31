@@ -1,0 +1,157 @@
+\documentclass[border=10pt,tikz]{standalone}
+\usepackage{pgfplots}
+\usepackage{amsmath}
+\pgfplotsset{compat = newest}
+\usetikzlibrary{calc, intersections,patterns}	      
+\usetikzlibrary{positioning, arrows.meta}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{math}
+
+
+ %allows coordinate calculations.
+\begin{document}   
+	
+%% parameters
+\tikzmath{
+  \bMC=1;
+  \intMC=0;
+  \bA=1/2;
+  \intA=50;
+  \bB=1/2;
+  \intB=30; 
+}
+
+%% MB and MC functions
+\tikzset{declare function = {MBpriv(\x,\b,\int) = \int-(\b*\x);}}
+\tikzset{declare function = {MC(\x,\b,\int) = \int+(\b*\x);}}
+
+%% private optimum function
+\tikzset{declare function = {optQ(\intMC,\bMC,\intMB,\bMB) = (\intMB-\intMC)/(\bMC+\bMB);}}
+%% priv opt for A
+\tikzmath{
+  \QprivOptA=optQ(\intMC,\bMC,\intA,\bA);
+  \MBprivOptA = MBpriv(\QprivOptA,\bA,\intA);
+}		
+%% priv opt for B
+\tikzmath{
+  \QprivOptB=optQ(\intMC,\bMC,\intB,\bB);
+  \MBprivOptB = MBpriv(\QprivOptB,\bB,\intB);
+}		
+
+%% social MB function
+\tikzset{declare function = {MBsoc(\MBprivA,\MBprivB) = max(0,\MBprivA)+max(0,\MBprivB);}}
+
+%% soc opt -- note assumes "interior" opt, i.e. MB_A and MB_B both >0
+\tikzmath{
+  \qOptSoc=optQ(\intMC,\bMC,{\intA+\intB},{\bA+\bB};
+  \MBsocOpt = MBsoc(MBpriv(\qOptSoc,\bA,\intA),MBpriv(\qOptSoc,\bB,\intB));}
+
+	
+  
+\begin{tikzpicture}[font=\footnotesize]
+	
+\input{inputs/axes.tex}
+
+\end{axis}
+	
+\end{tikzpicture}	
+
+
+\begin{tikzpicture}[font=\footnotesize]
+  
+  \input{inputs/axes.tex}
+  
+  \input{inputs/MC.tex}
+  
+\end{axis}
+
+\end{tikzpicture}	
+
+
+
+\begin{tikzpicture}[font=\footnotesize]
+  
+  \input{inputs/axes.tex}
+  
+  \input{inputs/MC.tex}
+  
+  \input{inputs/privMBs.tex}
+  
+\end{axis}
+
+\end{tikzpicture}	
+
+\begin{tikzpicture}[font=\footnotesize]
+  
+  \input{inputs/axes.tex}
+  
+  \input{inputs/MC.tex}
+  
+  \input{inputs/privMBs.tex}
+  
+  \input{inputs/priv-opt-A.tex}
+  
+\end{axis}
+
+\end{tikzpicture}	
+
+
+\begin{tikzpicture}[font=\footnotesize]
+  
+  \input{inputs/axes.tex}
+  
+  \input{inputs/MC.tex}
+  
+  \input{inputs/privMBs.tex}
+  
+  \input{inputs/priv-opt-A.tex}
+  
+  \input{inputs/priv-opt-B.tex}
+  
+\end{axis}
+
+\end{tikzpicture}	
+
+
+\begin{tikzpicture}[font=\footnotesize]
+  
+  \input{inputs/axes.tex}
+  
+  \input{inputs/MC.tex}
+  
+  \input{inputs/privMBs.tex}
+  
+  \input{inputs/priv-opt-A.tex}
+  
+  \input{inputs/priv-opt-B.tex}
+  
+  \input{inputs/social-MB.tex}
+  
+\end{axis}
+
+\end{tikzpicture}	
+
+	
+  
+\begin{tikzpicture}[font=\footnotesize]
+  
+  \input{inputs/axes.tex}
+  
+  \input{inputs/MC.tex}
+  
+  \input{inputs/privMBs.tex}
+  
+  \input{inputs/priv-opt-A.tex}
+  
+  \input{inputs/priv-opt-B.tex}
+  
+  \input{inputs/social-MB.tex}
+  
+  \input{inputs/soc-opt.tex}
+
+\end{axis}
+
+\end{tikzpicture}	
+
+
+\end{document}
