@@ -4,4 +4,4 @@
 # compiled windows mupdf from chocolatey
 
 
-mutool convert -o svg/publicGoods.svg publicGoodsGarden.pdf
+mutool convert -o svg/publicGoods-beamer.svg publicGoodsGarden-beamer.pdf
