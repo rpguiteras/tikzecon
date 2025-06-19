@@ -1,0 +1,33 @@
+
+
+
+%%%%% CES 
+
+% indifference curve 
+\tikzset{declare function = {indiffCES(\U,\alpha,\rho,\x) = (  ( (\U^\rho) - (\alpha*(\x^\rho)) ) / (1-\alpha)  )^(1/\rho);}}
+
+% max x-domain 
+\tikzset{declare function = {xMaxCES(\U,\alpha,\rho) = ((\U^\rho)/\alpha)^(1/\rho);}}
+
+\tikzset{declare function = {denom(\px,\py,\alpha,\rho) =  ((\alpha^\rho)*(\px^(1-\rho))) + (((1-\alpha)^\rho)*(\py^(1-\rho))) ;}}
+
+% u-maxing x
+\tikzset{declare function = {xStar(\px,\py,\alpha,\rho,\M) = \M * ((\alpha/\px)^\rho) / denom(\px,\py,\alpha,\rho);}}
+
+% u-maxing y
+\tikzset{declare function = {yStar(\px,\py,\alpha,\rho,\M) = \M * (((1-\alpha)/\py)^\rho) / denom(\px,\py,\alpha,\rho);}}
+
+% price index (useful shortcut for value function and expenditure function)
+\tikzset{declare function = {priceIndex(\px,\py,\alpha,\rho) = denom(\px,\py,\alpha,\rho)^(1/(1-\rho));}}
+
+% value function 
+\tikzset{declare function = {value(\px,\py,\alpha,\rho,\M) = \M/priceIndex(\px,\py,\alpha,\rho);}}
+
+% expenditure function 
+\tikzset{declare function = {expenditure(\px,\py,\alpha,\rho,\U) = \U*priceIndex(\px,\py,\alpha,\rho);}}
+
+% find new price px to achieve given utility
+\tikzset{declare function = {newpx(\py,\alpha,\rho,\U,\M) = (((\U/\M)^(\rho-1) - ((1-\alpha)^\rho)*(\py^(1-\rho)))/(\alpha^\rho))^(1/(1-\rho));}}
+
+%
+
