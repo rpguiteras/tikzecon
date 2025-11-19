@@ -14,6 +14,7 @@
 \tikzmath{
 	\a=0.5;
 	\r=-0.25; 
+  \s=1/(1-\r);
   \py=1;
 }
 
@@ -41,9 +42,9 @@
 		\tikzmath{
       \px0=1;
       \U0=40;
-      \M0=expenditure(\px0,\py,\a,\r,\U0);
-      \x0=xStar(\px0,\py,\a,\r,\M0);
-      \y0=yStar(\px0,\py,\a,\r,\M0);
+      \M0=expenditure(\px0,\py,\a,\s,\U0);
+      \x0=xStar(\px0,\py,\a,\s,\M0);
+      \y0=yStar(\px0,\py,\a,\s,\M0);
     }
     
     % initial budget constraint
@@ -53,14 +54,14 @@
     % initial optimum
     \addplot[color = black, mark = *, only marks, mark size = 3pt] coordinates {(\x0, \y0)};
     \node [below] at (\x0, 0) {$X^{*}_{0}$};
-    \node [left] at (0, \y0) {$Y^{*}_{0}$};
+    \node [anchor=337.5] at (0, \y0) {$Y^{*}_{0}$};
     \addplot[color = black, dashed, thick] coordinates {(0, \y0) (\x0, \y0)	(\x0, 0)};
     \node [right] at (100, {indiffCES(\U0,\a,\r,100)}) {$U_{0}$};
     
     % find new price that yields U1 
     \tikzmath{
       \U1=30;
-      \px1=newpx(\py,\a,\r,\U1,\M0);
+      \px1=newpx(\py,\a,\s,\U1,\M0);
     }
     
     
@@ -68,13 +69,13 @@
     \addplot[domain = 0:100, restrict y to domain = 0:100, samples = 100, color = blue, thick]{\M0-(\px1*x)};
  
  	\tikzmath{
-   \x1=xStar(\px1,\py,\a,\r,\M0);
-   \y1=yStar(\px1,\py,\a,\r,\M0);
+   \x1=xStar(\px1,\py,\a,\s,\M0);
+   \y1=yStar(\px1,\py,\a,\s,\M0);
  }
     % new optimum
 \addplot[color = black, mark = *, only marks, mark size = 3pt] coordinates {(\x1, \y1)};
 \node [below] at (\x1, 0) {$X^{*}_{1}$};
-\node [left] at (0, \y1) {$Y^{*}_{1}$};
+\node [anchor=22.5] at (0, \y1) {$Y^{*}_{1}$};
 \addplot[color = black, dashed, thick] coordinates {(0, \y1) (\x1, \y1)	(\x1, 0)};
 \node [right] at (100, {indiffCES(\U1,\a,\r,100)}) {$U_{1}$};
 

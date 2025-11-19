@@ -7,27 +7,27 @@
 \tikzset{declare function = {indiffCES(\U,\alpha,\rho,\x) = (  ( (\U^\rho) - (\alpha*(\x^\rho)) ) / (1-\alpha)  )^(1/\rho);}}
 
 % max x-domain 
-\tikzset{declare function = {xMaxCES(\U,\alpha,\rho) = ((\U^\rho)/\alpha)^(1/\rho);}}
+\tikzset{declare function = {xMaxCES(\U,\alpha,\s) = ((\U^\s)/\alpha)^(1/\s);}}
 
-\tikzset{declare function = {denom(\px,\py,\alpha,\rho) =  ((\alpha^\rho)*(\px^(1-\rho))) + (((1-\alpha)^\rho)*(\py^(1-\rho))) ;}}
+\tikzset{declare function = {denom(\px,\py,\alpha,\s) =  ((\alpha^\s)*(\px^(1-\s))) + (((1-\alpha)^\s)*(\py^(1-\s))) ;}}
 
 % u-maxing x
-\tikzset{declare function = {xStar(\px,\py,\alpha,\rho,\M) = \M * ((\alpha/\px)^\rho) / denom(\px,\py,\alpha,\rho);}}
+\tikzset{declare function = {xStar(\px,\py,\alpha,\s,\M) = \M * ((\alpha/\px)^\s) / denom(\px,\py,\alpha,\s);}}
 
 % u-maxing y
-\tikzset{declare function = {yStar(\px,\py,\alpha,\rho,\M) = \M * (((1-\alpha)/\py)^\rho) / denom(\px,\py,\alpha,\rho);}}
+\tikzset{declare function = {yStar(\px,\py,\alpha,\s,\M) = \M * (((1-\alpha)/\py)^\s) / denom(\px,\py,\alpha,\s);}}
 
 % price index (useful shortcut for value function and expenditure function)
-\tikzset{declare function = {priceIndex(\px,\py,\alpha,\rho) = denom(\px,\py,\alpha,\rho)^(1/(1-\rho));}}
+\tikzset{declare function = {priceIndex(\px,\py,\alpha,\s) = denom(\px,\py,\alpha,\s)^(1/(1-\s));}}
 
 % value function 
-\tikzset{declare function = {value(\px,\py,\alpha,\rho,\M) = \M/priceIndex(\px,\py,\alpha,\rho);}}
+\tikzset{declare function = {value(\px,\py,\alpha,\s,\M) = \M/priceIndex(\px,\py,\alpha,\s);}}
 
 % expenditure function 
-\tikzset{declare function = {expenditure(\px,\py,\alpha,\rho,\U) = \U*priceIndex(\px,\py,\alpha,\rho);}}
+\tikzset{declare function = {expenditure(\px,\py,\alpha,\s,\U) = \U*priceIndex(\px,\py,\alpha,\s);}}
 
 % find new price px to achieve given utility
-\tikzset{declare function = {newpx(\py,\alpha,\rho,\U,\M) = (((\U/\M)^(\rho-1) - ((1-\alpha)^\rho)*(\py^(1-\rho)))/(\alpha^\rho))^(1/(1-\rho));}}
+\tikzset{declare function = {newpx(\py,\alpha,\s,\U,\M) = (((\U/\M)^(\s-1) - ((1-\alpha)^\s)*(\py^(1-\s)))/(\alpha^\s))^(1/(1-\s));}}
 
 %
 
